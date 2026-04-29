@@ -46,4 +46,7 @@ public class Request implements Serializable {
         this.assignedTo = specialist;
     }
 
+    public String getId() {
+        return this.id;
+    }
 }

@@ -65,7 +65,7 @@
 											"top": 1006,
 											"width": 2535,
 											"height": 13,
-											"text": "KBTU"
+											"text": "kbtu"
 										},
 										{
 											"_type": "LabelView",
@@ -297,7 +297,7 @@
 											"top": -24,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -614,7 +614,7 @@
 											"top": -104,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -1896,7 +1896,7 @@
 											"top": -82,
 											"width": 167,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -2423,7 +2423,7 @@
 											"top": -48,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -3672,7 +3672,7 @@
 											"top": -1504,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -4243,7 +4243,7 @@
 											"top": -1728,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -4463,7 +4463,7 @@
 											"top": -2000,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -4856,7 +4856,7 @@
 											"top": -904,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -5438,7 +5438,7 @@
 											"top": -832,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -7055,7 +7055,7 @@
 											"top": 1080,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -7809,7 +7809,7 @@
 											"top": 984,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -8274,7 +8274,7 @@
 											"top": -1184,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -8842,7 +8842,7 @@
 											"top": 256,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -9379,7 +9379,7 @@
 											"top": 952,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -9663,7 +9663,7 @@
 											"top": 3824,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -10011,7 +10011,7 @@
 											"top": 2960,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -11811,7 +11811,7 @@
 											"top": 1584,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -12380,7 +12380,7 @@
 											"top": 1840,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -12667,7 +12667,7 @@
 											"top": 2672,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -12972,7 +12972,7 @@
 											"top": 1832,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -14945,7 +14945,7 @@
 											"top": -552,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -15222,7 +15222,7 @@
 											"top": 2000,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -15505,7 +15505,7 @@
 											"top": 656,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -15878,7 +15878,7 @@
 											"top": -530,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -16233,7 +16233,7 @@
 											"top": 408,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -16552,7 +16552,7 @@
 											"top": -168,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -16871,7 +16871,7 @@
 											"top": 128,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -17190,7 +17190,7 @@
 											"top": 864,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -17436,7 +17436,7 @@
 											"top": 2128,
 											"width": 96.0908203125,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -17686,7 +17686,7 @@
 											"top": 1280,
 											"width": 73.67724609375,
 											"height": 13,
-											"text": "(from KBTU)"
+											"text": "(from kbtu)"
 										},
 										{
 											"_type": "LabelView",
@@ -17913,7 +17913,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "KBTU",
+					"name": "kbtu",
 					"ownedElements": [
 						{
 							"_type": "UMLClass",

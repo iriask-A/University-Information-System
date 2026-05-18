@@ -33,8 +33,7 @@ public interface Researcher {
         return h;
     }
 
-    static void printSorted(String ownerName, List<ResearchPaper> papers,
-                            Comparator<ResearchPaper> comparator) {
+    static void printSorted(String ownerName, List<ResearchPaper> papers, Comparator<ResearchPaper> comparator) {
         System.out.println("Papers of " + ownerName + ":");
         if (papers.isEmpty()) {
             System.out.println("  (none)");

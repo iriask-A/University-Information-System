@@ -11,7 +11,7 @@ import java.util.List;
 public class Journal implements Observable, Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String              name;
+    private String name;
     private List<ResearchPaper> papers;
     private transient List<Observer> subscribers;
 
@@ -52,8 +52,8 @@ public class Journal implements Observable, Serializable {
         subscribe((Observer) event -> user.addNotification(event));
     }
 
-    public String              getName()   { return name; }
-    public List<ResearchPaper> getPapers() { return papers; }
+    public String getName(){ return name; }
+    public List<ResearchPaper> getPapers(){ return papers; }
 
     @Override
     public String toString() { return "Journal{'" + name + "', papers=" + papers.size() + "}"; }

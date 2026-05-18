@@ -14,8 +14,7 @@ public class Admin extends Employee {
     /** Stores log entries of administrative actions with timestamps. */
     private List<String> logFiles;
 
-    public Admin(String id, String username, String password,
-                 String fullName, String email, double salary) {
+    public Admin(String id, String username, String password, String fullName, String email, double salary) {
         super(id, username, password, fullName, email, salary);
         this.logFiles = new ArrayList<>();
     }

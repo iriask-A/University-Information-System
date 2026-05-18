@@ -8,8 +8,8 @@ import kbtu.model.user.Student;
 public class Enrollment implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private Student          student;
-    private Course           course;
+    private Student student;
+    private Course course;
     private EnrollmentStatus status;
 
     public Enrollment() {
@@ -39,10 +39,10 @@ public class Enrollment implements Serializable {
         System.out.println(student.getFullName() + " dropped course " + course.getCourseName());
     }
 
-    public Student          getStudent() { return student; }
-    public void             setStudent(Student s) { this.student = s; }
-    public Course           getCourse()  { return course; }
-    public void             setCourse(Course c)   { this.course = c; }
+    public Student getStudent() { return student; }
+    public void setStudent(Student s) { this.student = s; }
+    public Course getCourse()  { return course; }
+    public void setCourse(Course c)   { this.course = c; }
     public EnrollmentStatus getStatus()  { return status; }
-    public void             setStatus(EnrollmentStatus s) { this.status = s; }
+    public void setStatus(EnrollmentStatus s) { this.status = s; }
 }

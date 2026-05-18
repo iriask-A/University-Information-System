@@ -20,8 +20,7 @@ public class GraduateStudent extends Student implements Researcher {
     private Researcher supervisor;
     private final List<ResearchPaper> portfolio = new ArrayList<>();
 
-    public GraduateStudent(String id, String username, String password,
-                           String fullName, String email,
+    public GraduateStudent(String id, String username, String password, String fullName, String email,
                            int yearOfStudy, String major,
                            GraduateType graduateType) {
         super(id, username, password, fullName, email, yearOfStudy, major);

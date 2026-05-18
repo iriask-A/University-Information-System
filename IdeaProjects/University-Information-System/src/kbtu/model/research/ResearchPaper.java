@@ -29,18 +29,16 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     /** Digital Object Identifier (DOI) for unique identification of the paper. */
     private String doi;
 
-    public ResearchPaper(String title, List<String> authors, Journal journal,
-                         int pages, Date datePublished) {
-        this.title         = title;
-        this.authors       = authors;
-        this.journal       = journal;
-        this.pages         = pages;
+    public ResearchPaper(String title, List<String> authors, Journal journal, int pages, Date datePublished) {
+        this.title = title;
+        this.authors = authors;
+        this.journal = journal;
+        this.pages = pages;
         this.datePublished = datePublished;
-        this.citations     = 0;
+        this.citations = 0;
     }
 
-    public ResearchPaper(String title, List<String> authors, Journal journal,
-                         int pages, Date datePublished, String doi) {
+    public ResearchPaper(String title, List<String> authors, Journal journal, int pages, Date datePublished, String doi) {
         this(title, authors, journal, pages, datePublished);
         this.doi = doi;
     }
@@ -51,8 +49,8 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
      * @return A formatted string representing the paper's citation.
      */
     public String getCitation(Format format) {
-        String authorsList   = String.join(", ", authors);
-        String journalName   = (journal != null) ? journal.getName() : "Unknown Journal";
+        String authorsList = String.join(", ", authors);
+        String journalName = (journal != null) ? journal.getName() : "Unknown Journal";
         if (format == Format.BIBTEX) {
             return String.format(
                     "@article{authors={%s}, title={%s}, journal={%s}, year={%tY}, doi={%s}}",
@@ -79,14 +77,14 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     }
 
     // Getters
-    public String       getTitle()         { return title; }
-    public List<String> getAuthors()       { return authors; }
-    public Journal      getJournal()       { return journal; }
-    public int          getPages()         { return pages; }
-    public Date         getDatePublished() { return datePublished; }
-    public int          getCitations()     { return citations; }
-    public String       getDoi()           { return doi; }
-    public void         setDoi(String doi) { this.doi = doi; }
+    public String getTitle(){ return title; }
+    public List<String> getAuthors(){ return authors; }
+    public Journal getJournal(){ return journal; }
+    public int getPages(){ return pages; }
+    public Date getDatePublished(){ return datePublished; }
+    public int getCitations(){ return citations; }
+    public String getDoi(){ return doi; }
+    public void setDoi(String doi){ this.doi = doi; }
 
     @Override
     public String toString() {

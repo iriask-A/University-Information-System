@@ -24,8 +24,8 @@ public class Message implements Serializable {
 
     public Employee getSender()   { return sender; }
     public Employee getReceiver() { return receiver; }
-    public String   getContent()  { return content; }
-    public Date     getTimestamp(){ return timestamp; }
+    public String getContent()  { return content; }
+    public Date getTimestamp(){ return timestamp; }
 
     @Override
     public String toString() {

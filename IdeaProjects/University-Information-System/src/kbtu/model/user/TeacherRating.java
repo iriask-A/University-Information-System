@@ -8,8 +8,8 @@ public class TeacherRating {
 
     private Student student;
     private Teacher teacher;
-    private int     rating;   // 1..10
-    private String  comment;
+    private int rating;
+    private String comment;
 
     public TeacherRating() {}
 
@@ -29,19 +29,19 @@ public class TeacherRating {
                            + " submitted by " + student.getFullName());
     }
 
-    public Student getStudent()            { return student; }
-    public void    setStudent(Student s)   { this.student = s; }
-    public Teacher getTeacher()            { return teacher; }
-    public void    setTeacher(Teacher t)   { this.teacher = t; }
+    public Student getStudent(){ return student; }
+    public void setStudent(Student s){ this.student = s; }
+    public Teacher getTeacher(){ return teacher; }
+    public void setTeacher(Teacher t){ this.teacher = t; }
 
-    public int  getRating() { return rating; }
+    public int  getRating(){ return rating; }
     public void setRating(int rating) {
         if (rating >= 1 && rating <= 10) this.rating = rating;
         else { System.out.println("Invalid rating (must be 1-10). Set to 0."); this.rating = 0; }
     }
 
-    public String getComment()           { return comment; }
-    public void   setComment(String c)   { this.comment = c; }
+    public String getComment(){ return comment; }
+    public void   setComment(String c){ this.comment = c; }
 
     @Override
     public String toString() {

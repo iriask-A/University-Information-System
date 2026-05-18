@@ -18,7 +18,7 @@ public class Lesson implements Serializable {
     /** The specific subject or theme covered during the session. */
     private String topic;
 
-    /** The physical room or laboratory where the lesson takes place. */
+    /** The place where the lesson takes place. */
     private String room;
 
     public Lesson() {}

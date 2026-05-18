@@ -31,26 +31,22 @@ public class Manager extends Employee {
     }
 
     public void approveRegistration(Student student) {
-        System.out.println("Manager " + getFullName()
-                           + " approved registration for " + student.getFullName());
+        System.out.println("Manager " + getFullName() + " approved registration for " + student.getFullName());
     }
 
     public String createStatisticalReport(List<Student> students) {
         if (students.isEmpty()) return "No students to report.";
 
-        double avgGpa = students.stream()
-                .mapToDouble(Student::getGpa).average().orElse(0.0);
+        double avgGpa = students.stream().mapToDouble(Student::getGpa).average().orElse(0.0);
 
-        Student top = students.stream()
-                .max(Comparator.comparingDouble(Student::getGpa)).orElse(null);
+        Student top = students.stream().max(Comparator.comparingDouble(Student::getGpa)).orElse(null);
 
         StringBuilder sb = new StringBuilder();
         sb.append("=== Statistical Report ===\n");
         sb.append("Total students: ").append(students.size()).append("\n");
         sb.append(String.format("Average GPA: %.2f%n", avgGpa));
         if (top != null)
-            sb.append("Top student: ").append(top.getFullName())
-              .append(" (GPA: ").append(top.getGpa()).append(")\n");
+            sb.append("Top student: ").append(top.getFullName()).append(" (GPA: ").append(top.getGpa()).append(")\n");
 
         System.out.println(sb);
         return sb.toString();
@@ -58,15 +54,13 @@ public class Manager extends Employee {
 
     public void viewStudentsByGpa(List<Student> students) {
         System.out.println("=== Students by GPA (desc) ===");
-        students.stream()
-                .sorted(Comparator.comparingDouble(Student::getGpa).reversed())
+        students.stream().sorted(Comparator.comparingDouble(Student::getGpa).reversed())
                 .forEach(s -> System.out.println(s.getFullName() + " — " + s.getGpa()));
     }
 
     public void viewStudentsAlphabetically(List<Student> students) {
         System.out.println("=== Students Alphabetically ===");
-        students.stream()
-                .sorted(Comparator.comparing(Student::getFullName))
+        students.stream().sorted(Comparator.comparing(Student::getFullName))
                 .forEach(s -> System.out.println(s.getFullName()));
     }
 
@@ -89,8 +83,8 @@ public class Manager extends Employee {
         signedRequests.add(request);
     }
 
-    public ManagerType getManagerType()              { return managerType; }
-    public void        setManagerType(ManagerType t) { this.managerType = t; }
+    public ManagerType getManagerType(){ return managerType; }
+    public void setManagerType(ManagerType t) { this.managerType = t; }
 
     @Override
     public String toString() {

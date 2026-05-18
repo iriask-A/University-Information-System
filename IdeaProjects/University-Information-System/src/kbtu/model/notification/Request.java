@@ -45,7 +45,7 @@ public class Request implements Serializable {
                 + ", text='" + description + "'}";
     }
 
-    public String getId() { return id; }
-    public RequestStatus getStatus() { return status; }
-    public User getSender() { return sender; }
+    public String getId(){ return id; }
+    public RequestStatus getStatus(){ return status; }
+    public User getSender(){ return sender; }
 }

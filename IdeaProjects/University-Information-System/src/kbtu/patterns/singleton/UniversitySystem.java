@@ -17,9 +17,7 @@ import java.util.stream.Collectors;
 public class UniversitySystem implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final String DATA_FILE = "university_data.ser";
-
     private static UniversitySystem instance;
-
     private final List<User> users = new ArrayList<>();
     private final List<Course> courses = new ArrayList<>();
     private final List<Journal> journals = new ArrayList<>();
@@ -63,19 +61,12 @@ public class UniversitySystem implements Serializable {
 
     public void printAllResearchPapers(Comparator<ResearchPaper> comparator) {
         System.out.println("All university papers:");
-        getAllResearchers().stream()
-                .flatMap(r -> r.getPortfolio().stream())
-                .distinct()
-                .sorted(comparator)
-                .forEach(p -> System.out.println("  " + p));
+        getAllResearchers().stream().flatMap(r -> r.getPortfolio().stream()).distinct().sorted(comparator).forEach(p -> System.out.println("  " + p));
     }
 
     public void printTopResearchers(int topN) {
         System.out.println("Top " + topN + " researchers:");
-        getAllResearchers().stream()
-                .sorted(Comparator.comparingInt(Researcher::calculateHIndex).reversed())
-                .limit(topN)
-                .forEach(r -> {
+        getAllResearchers().stream().sorted(Comparator.comparingInt(Researcher::calculateHIndex).reversed()).limit(topN).forEach(r -> {
                     String name = r instanceof User ? ((User) r).getFullName() : r.toString();
                     System.out.println("  " + name + " (h-index " + r.calculateHIndex() + ")");
                 });
@@ -83,21 +74,13 @@ public class UniversitySystem implements Serializable {
 
     public void printTopResearchersBySchool(String schoolMajor, int topN) {
         System.out.println("Top " + topN + " in " + schoolMajor + ":");
-        getAllResearchers().stream()
-                .filter(r -> r instanceof Teacher
-                        && ((Teacher) r).getCourseCodes().stream()
-                        .anyMatch(code -> code.startsWith(schoolMajor)))
-                .sorted(Comparator.comparingInt(Researcher::calculateHIndex).reversed())
-                .limit(topN)
-                .forEach(r -> System.out.println("  " + ((User) r).getFullName()
+        getAllResearchers().stream().filter(r -> r instanceof Teacher && ((Teacher) r).getCourseCodes().stream().anyMatch(code -> code.startsWith(schoolMajor)))
+                .sorted(Comparator.comparingInt(Researcher::calculateHIndex).reversed()).limit(topN).forEach(r -> System.out.println("  " + ((User) r).getFullName()
                         + " (h-index " + r.calculateHIndex() + ")"));
     }
 
     private List<Researcher> getAllResearchers() {
-        return users.stream()
-                .filter(u -> u instanceof Researcher)
-                .map(u -> (Researcher) u)
-                .collect(Collectors.toList());
+        return users.stream().filter(u -> u instanceof Researcher).map(u -> (Researcher) u).collect(Collectors.toList());
     }
 
     public User authenticate(String username, String password) {

@@ -36,9 +36,7 @@ public class Student extends User {
     /** Map storing marks where the key is the course code. */
     private final Map<String, Mark> marks;
 
-    public Student(String id, String username, String password,
-                   String fullName, String email,
-                   int yearOfStudy, String major) {
+    public Student(String id, String username, String password, String fullName, String email, int yearOfStudy, String major) {
         super(id, username, password, fullName, email);
         this.yearOfStudy = yearOfStudy;
         this.major = major;
@@ -94,10 +92,7 @@ public class Student extends User {
             gpa = 0.0;
             return;
         }
-        double total = marks.values().stream()
-                .mapToDouble(Mark::getDigitGrade)
-                .average()
-                .orElse(0.0);
+        double total = marks.values().stream().mapToDouble(Mark::getDigitGrade).average().orElse(0.0);
         this.gpa = Math.round(total * 100.0) / 100.0;
     }
 

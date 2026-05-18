@@ -17,7 +17,6 @@ public class News implements Serializable {
     private String content;
     private Date date;
 
-    /** Indicates if the news item is stuck to the top of the list. */
     private boolean isPinned;
 
     /** Flag to distinguish between academic research news and general updates. */
@@ -27,12 +26,12 @@ public class News implements Serializable {
     private List<String> comments;
 
     public News(String title, String content, boolean isResearchRelated) {
-        this.title             = title;
-        this.content           = content;
+        this.title = title;
+        this.content = content;
         this.isResearchRelated = isResearchRelated;
-        this.date              = new Date();
-        this.isPinned          = false;
-        this.comments          = new ArrayList<>();
+        this.date = new Date();
+        this.isPinned = false;
+        this.comments = new ArrayList<>();
     }
 
     /**
@@ -46,23 +45,23 @@ public class News implements Serializable {
     }
 
     /** Sets the news item as pinned. */
-    public void pin()   { isPinned = true; }
+    public void pin(){ isPinned = true; }
 
     /** Sets the news item as unpinned. */
-    public void unpin() { isPinned = false; }
+    public void unpin(){ isPinned = false; }
 
     /** @return true if the news is pinned. */
-    public boolean isPinned()           { return isPinned; }
+    public boolean isPinned(){ return isPinned; }
 
     /** @return true if the news is related to research. */
-    public boolean isResearchRelated()  { return isResearchRelated; }
+    public boolean isResearchRelated(){ return isResearchRelated; }
 
-    public String  getTitle()           { return title; }
-    public String  getContent()         { return content; }
-    public Date    getDate()            { return date; }
+    public String getTitle(){ return title; }
+    public String getContent(){ return content; }
+    public Date getDate(){ return date; }
 
     /** @return The list of all comments for this news item. */
-    public List<String> getComments()   { return comments; }
+    public List<String> getComments(){ return comments; }
 
     @Override
     public String toString() {

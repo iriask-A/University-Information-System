@@ -19,11 +19,7 @@ public class Course implements Serializable {
     private String courseName;
     private String courseCode;
     private int credits;
-
-    /** The major or specialty this course is primarily intended for. */
     private String major;
-
-    /** The recommended year of study for students taking this course. */
     private int targetYear;
 
     /** List of teachers authorized to conduct the course. */

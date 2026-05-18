@@ -26,9 +26,9 @@ public class ResearchProject implements Serializable {
     private List<Researcher> participants;
 
     public ResearchProject(String topic) {
-        this.topic          = topic;
+        this.topic = topic;
         this.publishedPapers = new ArrayList<>();
-        this.participants    = new ArrayList<>();
+        this.participants = new ArrayList<>();
     }
 
     /**
@@ -64,13 +64,13 @@ public class ResearchProject implements Serializable {
     public String getTopic() { return topic; }
 
     /** @return The list of researchers involved in this project. */
-    public List<Researcher> getParticipants() { return participants; }
+    public List<Researcher> getParticipants(){ return participants; }
 
     /** @return The collection of papers published by this project. */
-    public List<ResearchPaper> getPublishedPapers() { return publishedPapers; }
+    public List<ResearchPaper> getPublishedPapers(){ return publishedPapers; }
 
     @Override
-    public String toString() {
+    public String toString(){
         return "ResearchProject{topic='" + topic + "', participants=" + participants.size() + "}";
     }
 }

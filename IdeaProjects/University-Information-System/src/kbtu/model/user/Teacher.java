@@ -36,7 +36,6 @@ public class Teacher extends Employee implements Researcher {
         this.portfolio = new ArrayList<>();
     }
 
-    // ── Teaching actions ─────────────────────────────────────────────────────
 
     /**
      * Records a mark for a specific student in a given course.
@@ -112,11 +111,9 @@ public class Teacher extends Employee implements Researcher {
         portfolio.add(paper);
     }
 
-
-
-    public TeacherPosition getPosition()              { return position; }
-    public void            setPosition(TeacherPosition p) { this.position = p; }
-    public List<String>    getCourseCodes()           { return courseCodes; }
+    public TeacherPosition getPosition() { return position; }
+    public void setPosition(TeacherPosition p) { this.position = p; }
+    public List<String> getCourseCodes() { return courseCodes; }
 
     @Override
     public String toString() {

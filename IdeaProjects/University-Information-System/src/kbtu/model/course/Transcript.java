@@ -9,7 +9,7 @@ import kbtu.model.user.Student;
 public class Transcript implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private Student    student;
+    private Student student;
     private List<Mark> marks;
 
     public Transcript() { this.marks = new ArrayList<>(); }
@@ -22,7 +22,7 @@ public class Transcript implements Serializable {
     public double calculateGPA() {
         if (marks.isEmpty()) return 0.0;
         double totalPoints  = 0;
-        int    totalCredits = 0;
+        int totalCredits = 0;
         for (Mark mark : marks) {
             int credits = mark.getCourse().getCredits();
             totalPoints  += mark.getDigitGrade() * credits;
@@ -47,10 +47,10 @@ public class Transcript implements Serializable {
         return sb.toString();
     }
 
-    public void print() { System.out.println(getTranscriptText()); }
+    public void print(){ System.out.println(getTranscriptText()); }
 
-    public Student    getStudent()      { return student; }
-    public void       setStudent(Student s) { this.student = s; }
-    public List<Mark> getMarks()        { return marks; }
-    public void       addMark(Mark m)   { marks.add(m); }
+    public Student getStudent(){ return student; }
+    public void setStudent(Student s){ this.student = s; }
+    public List<Mark> getMarks(){ return marks; }
+    public void addMark(Mark m){ marks.add(m); }
 }

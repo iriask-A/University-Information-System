@@ -41,28 +41,28 @@ public abstract class User implements Serializable {
         return notifications;
     }
 
-    public String getId() { return id; }
-    public String getUsername() { return username; }
-    public String getPassword() { return password; }
-    public String getFullName() { return fullName; }
-    public void setFullName(String fullName) { this.fullName = fullName; }
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public String getId(){ return id; }
+    public String getUsername(){ return username; }
+    public String getPassword(){ return password; }
+    public String getFullName(){ return fullName; }
+    public void setFullName(String fullName){ this.fullName = fullName; }
+    public String getEmail(){ return email; }
+    public void setEmail(String email){ this.email = email; }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o){
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
         return Objects.equals(id, user.id);
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode(){
         return Objects.hash(id);
     }
 
     @Override
-    public String toString() {
+    public String toString(){
         return getClass().getSimpleName() + "{id='" + id + "', name='" + fullName + "'}";
     }
 }

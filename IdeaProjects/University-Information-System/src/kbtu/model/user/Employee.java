@@ -13,8 +13,7 @@ public abstract class Employee extends User {
     private double salary;
     private List<Message> messages;
 
-    public Employee(String id, String username, String password,
-                    String fullName, String email, double salary) {
+    public Employee(String id, String username, String password, String fullName, String email, double salary) {
         super(id, username, password, fullName, email);
         this.salary = salary;
         this.messages = new ArrayList<>();
@@ -42,9 +41,9 @@ public abstract class Employee extends User {
         }
     }
 
-    public double getSalary()              { return salary; }
-    public void   setSalary(double salary) { this.salary = salary; }
-    public List<Message> getMessages()     { return messages; }
+    public double getSalary(){ return salary; }
+    public void   setSalary(double salary){ this.salary = salary; }
+    public List<Message> getMessages(){ return messages; }
 
     @Override
     public String toString() {

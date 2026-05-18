@@ -7,20 +7,20 @@ import kbtu.model.user.Student;
 public class Mark implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private double  firstAttestation;
-    private double  secondAttestation;
-    private double  finalExam;
+    private double firstAttestation;
+    private double secondAttestation;
+    private double finalExam;
     private Student student;
-    private Course  course;
+    private Course course;
 
     public Mark() {}
 
     public Mark(double first, double second, double exam, Student student, Course course) {
-        this.firstAttestation  = first;
+        this.firstAttestation = first;
         this.secondAttestation = second;
-        this.finalExam         = exam;
-        this.student           = student;
-        this.course            = course;
+        this.finalExam = exam;
+        this.student = student;
+        this.course = course;
     }
 
    
@@ -59,14 +59,14 @@ public class Mark implements Serializable {
     }
 
     
-    public double  getFirstAttestation()            { return firstAttestation; }
-    public void    setFirstAttestation(double v)    { this.firstAttestation = v; }
-    public double  getSecondAttestation()           { return secondAttestation; }
-    public void    setSecondAttestation(double v)   { this.secondAttestation = v; }
-    public double  getFinalExam()                   { return finalExam; }
-    public void    setFinalExam(double v)           { this.finalExam = v; }
-    public Student getStudent()                     { return student; }
-    public Course  getCourse()                      { return course; }
+    public double  getFirstAttestation(){ return firstAttestation; }
+    public void    setFirstAttestation(double v){ this.firstAttestation = v; }
+    public double  getSecondAttestation(){ return secondAttestation; }
+    public void    setSecondAttestation(double v){ this.secondAttestation = v; }
+    public double  getFinalExam(){ return finalExam; }
+    public void    setFinalExam(double v){ this.finalExam = v; }
+    public Student getStudent(){ return student; }
+    public Course  getCourse(){ return course; }
 
     @Override
     public String toString() {

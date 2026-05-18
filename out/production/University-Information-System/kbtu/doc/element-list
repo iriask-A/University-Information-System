@@ -1,0 +1,11 @@
+kbtu
+kbtu.enums
+kbtu.exceptions
+kbtu.model.course
+kbtu.model.notification
+kbtu.model.research
+kbtu.model.user
+kbtu.patterns.factory
+kbtu.patterns.observer
+kbtu.patterns.singleton
+kbtu.patterns.strategy

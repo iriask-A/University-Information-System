@@ -8,28 +8,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Academic journal that publishes research papers.
- *
- * DESIGN PATTERN: Observer
- * Users subscribe to the journal. When a new paper is added,
- * all subscribers are automatically notified — without the journal
- * knowing anything about the concrete subscriber types.
- */
 public class Journal implements Observable, Serializable {
     private static final long serialVersionUID = 1L;
 
     private String              name;
     private List<ResearchPaper> papers;
-    private List<Observer>      subscribers;   // Observer pattern list
+    private transient List<Observer> subscribers;
 
     public Journal(String name) {
-        this.name        = name;
-        this.papers      = new ArrayList<>();
+        this.name = name;
+        this.papers = new ArrayList<>();
         this.subscribers = new ArrayList<>();
     }
 
-    // ── Observable (Observer pattern) ────────────────────────────────────────
+    private void readObject(java.io.ObjectInputStream in) throws java.io.IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        if (subscribers == null) {
+            subscribers = new ArrayList<>();
+        }
+    }
 
     @Override
     public void subscribe(Observer observer) {
@@ -46,14 +43,11 @@ public class Journal implements Observable, Serializable {
         for (Observer o : subscribers) o.update(event);
     }
 
-    // ── Journal-specific behaviour ────────────────────────────────────────────
-
     public void addPaper(ResearchPaper paper) {
         papers.add(paper);
         notifyObservers("New paper in '" + name + "': " + paper.getTitle());
     }
 
-    // Keep legacy User-based subscription (convenience)
     public void subscribe(User user) {
         subscribe((Observer) event -> user.addNotification(event));
     }

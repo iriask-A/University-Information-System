@@ -1,15 +1,11 @@
 package kbtu.model.course;
 
-import kbtu.model.user.Student;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import kbtu.model.user.Student;
 
-/**
- * Academic transcript for a student.
- * Calculates GPA using weighted credits from each course.
- */
+
 public class Transcript implements Serializable {
     private static final long serialVersionUID = 1L;
 

@@ -1,6 +1,7 @@
 package kbtu.model.user;
 
 import kbtu.enums.ManagerType;
+import kbtu.model.notification.News;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -69,13 +70,24 @@ public class Manager extends Employee {
                 .forEach(s -> System.out.println(s.getFullName()));
     }
 
-    public void viewSignedRequests() {
-        System.out.println("=== Signed Requests ===");
-        if (signedRequests.isEmpty()) System.out.println("No signed requests.");
-        else signedRequests.forEach(System.out::println);
+    public void publishNews(kbtu.patterns.singleton.UniversitySystem system, News news) {
+        system.publishNews(news);
+        System.out.println("Manager published: " + news.getTitle());
     }
 
-    public void addSignedRequest(Object request) { signedRequests.add(request); }
+    public void viewSignedRequests() {
+        System.out.println("Signed employee requests:");
+        if (signedRequests.isEmpty()) {
+            System.out.println("  none");
+        } else {
+            signedRequests.forEach(r -> System.out.println("  " + r));
+        }
+    }
+
+    public void signRequest(kbtu.model.notification.Request request) {
+        request.sign(this);
+        signedRequests.add(request);
+    }
 
     public ManagerType getManagerType()              { return managerType; }
     public void        setManagerType(ManagerType t) { this.managerType = t; }

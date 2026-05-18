@@ -12,40 +12,55 @@ import java.util.List;
 
 /**
  * Represents a teacher/instructor in the university.
- * Professors (TeacherPosition.PROFESSOR) automatically implement Researcher.
- *
- * Note: A Teacher can optionally implement Researcher if their position
- * is PROFESSOR, or voluntarily if they conduct research at other levels.
- * This class implements Researcher to cover all teacher-researchers;
- * subclasses may restrict by position if needed.
+ * This class handles academic actions such as grading and course management,
+ * as well as research activities including publication tracking and h-index calculation.
  */
 public class Teacher extends Employee implements Researcher {
     private static final long serialVersionUID = 1L;
 
-    private TeacherPosition   position;
-    private List<String>      courseCodes;
+    /** Current academic rank/position of the teacher. */
+    private TeacherPosition position;
+
+    /** List of unique course codes assigned to the teacher. */
+    private List<String> courseCodes;
+
+    /** List of research papers published by the teacher. */
     private List<ResearchPaper> portfolio;
 
     public Teacher(String id, String username, String password,
                    String fullName, String email,
                    double salary, TeacherPosition position) {
         super(id, username, password, fullName, email, salary);
-        this.position    = position;
+        this.position = position;
         this.courseCodes = new ArrayList<>();
-        this.portfolio   = new ArrayList<>();
+        this.portfolio = new ArrayList<>();
     }
 
     // ── Teaching actions ─────────────────────────────────────────────────────
 
+    /**
+     * Records a mark for a specific student in a given course.
+     * @param student The student receiving the grade.
+     * @param course The course for which the mark is assigned.
+     * @param first Points for the 1st attestation.
+     * @param second Points for the 2nd attestation.
+     * @param finalExam Points for the final examination.
+     */
     public void putMark(Student student, Course course, double first,
                         double second, double finalExam) {
         Mark mark = new Mark(first, second, finalExam, student, course);
         student.addMark(course.getCourseCode(), mark);
         System.out.println("Mark recorded for " + student.getFullName()
-                           + " in " + course.getCourseName()
-                           + " — Grade: " + mark.getLetterGrade());
+                + " in " + course.getCourseName()
+                + " — Grade: " + mark.getLetterGrade());
     }
 
+    /**
+     * Sends a formal complaint about a student to the Dean's office.
+     * @param studentName Name of the student.
+     * @param urgency The severity level of the issue.
+     * @param text Detailed description of the complaint.
+     */
     public void sendComplaint(String studentName, UrgencyLevel urgency, String text) {
         System.out.println("COMPLAINT [" + urgency + "]");
         System.out.println("From Teacher : " + getFullName());
@@ -54,12 +69,22 @@ public class Teacher extends Employee implements Researcher {
         System.out.println("Sent to Dean.");
     }
 
+    /**
+     * Displays all courses currently assigned to the teacher.
+     */
     public void viewCourses() {
         System.out.println("=== Courses of " + getFullName() + " ===");
-        if (courseCodes.isEmpty()) System.out.println("No courses assigned.");
-        else courseCodes.forEach(System.out::println);
+        if (courseCodes.isEmpty()) {
+            System.out.println("No courses assigned.");
+        } else {
+            courseCodes.forEach(System.out::println);
+        }
     }
 
+    /**
+     * Performs administrative tasks for a specific course.
+     * @param courseCode The code of the course to manage.
+     */
     public void manageCourse(String courseCode) {
         System.out.println("Managing course: " + courseCode);
     }
@@ -67,19 +92,11 @@ public class Teacher extends Employee implements Researcher {
     public void addCourseCode(String code)    { courseCodes.add(code); }
     public void removeCourseCode(String code) { courseCodes.remove(code); }
 
-    // ── Researcher implementation ─────────────────────────────────────────────
+
 
     @Override
     public int calculateHIndex() {
-        List<Integer> citations = new ArrayList<>();
-        for (ResearchPaper p : portfolio) citations.add(p.getCitations());
-        citations.sort(Comparator.reverseOrder());
-        int h = 0;
-        for (int i = 0; i < citations.size(); i++) {
-            if (citations.get(i) >= i + 1) h = i + 1;
-            else break;
-        }
-        return h;
+        return Researcher.hIndexFrom(portfolio);
     }
 
     @Override
@@ -87,8 +104,7 @@ public class Teacher extends Employee implements Researcher {
 
     @Override
     public void printPapers(Comparator<ResearchPaper> comparator) {
-        System.out.println("=== Papers of " + getFullName() + " ===");
-        portfolio.stream().sorted(comparator).forEach(System.out::println);
+        Researcher.printSorted(getFullName(), portfolio, comparator);
     }
 
     @Override
@@ -96,7 +112,7 @@ public class Teacher extends Employee implements Researcher {
         portfolio.add(paper);
     }
 
-    // ── Getters / Setters ────────────────────────────────────────────────────
+
 
     public TeacherPosition getPosition()              { return position; }
     public void            setPosition(TeacherPosition p) { this.position = p; }

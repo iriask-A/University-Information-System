@@ -9,16 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a research project within the university.
- * Only users who implement Researcher may join.
- * @throws NotResearcherException if a non-Researcher tries to join
+ * Represents a collective research project within the university.
+ * This class manages collaborative research topics, tracks participating researchers,
+ * and handles the publication of collective results.
  */
 public class ResearchProject implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String               topic;
-    private List<ResearchPaper>  publishedPapers;
-    private List<Researcher>     participants;
+    /** The main subject or field of study for this project. */
+    private String topic;
+
+    /** List of research papers published as a direct result of this project. */
+    private List<ResearchPaper> publishedPapers;
+
+    /** Collection of university members (Researchers) contributing to the project. */
+    private List<Researcher> participants;
 
     public ResearchProject(String topic) {
         this.topic          = topic;
@@ -27,8 +32,9 @@ public class ResearchProject implements Serializable {
     }
 
     /**
-     * Adds a participant. The user must implement Researcher.
-     * @throws NotResearcherException if the user is not a Researcher
+     * Adds a participant to the project. The user must implement the Researcher interface.
+     * @param user The system user attempting to join the project.
+     * @throws NotResearcherException if the user does not have researcher status.
      */
     public void addParticipant(User user) throws NotResearcherException {
         if (user instanceof Researcher) {
@@ -40,18 +46,27 @@ public class ResearchProject implements Serializable {
     }
 
     /**
-     * Publishes a result paper; credits it to all participants.
+     * Publishes a result paper and automatically adds it to the portfolio
+     * of every registered participant.
+     * @param paper The ResearchPaper object representing the project findings.
      */
     public void publishProjectResult(ResearchPaper paper) {
-        publishedPapers.add(paper);
-        for (Researcher r : participants) {
-            r.addPublication(paper);
+        if (paper != null) {
+            publishedPapers.add(paper);
+            for (Researcher r : participants) {
+                r.addPublication(paper);
+            }
+            System.out.println("Published: " + paper.getTitle());
         }
-        System.out.println("Published: " + paper.getTitle());
     }
 
-    public String              getTopic()           { return topic; }
-    public List<Researcher>    getParticipants()    { return participants; }
+    /** @return The current research topic. */
+    public String getTopic() { return topic; }
+
+    /** @return The list of researchers involved in this project. */
+    public List<Researcher> getParticipants() { return participants; }
+
+    /** @return The collection of papers published by this project. */
     public List<ResearchPaper> getPublishedPapers() { return publishedPapers; }
 
     @Override

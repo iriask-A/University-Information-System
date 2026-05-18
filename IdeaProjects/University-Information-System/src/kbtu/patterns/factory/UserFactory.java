@@ -5,19 +5,9 @@ import kbtu.enums.ManagerType;
 import kbtu.enums.TeacherPosition;
 import kbtu.model.user.*;
 
-/**
- * DESIGN PATTERN: Factory Method
- *
- * Centralises user creation so callers don't need to know the
- * concrete class or its constructor arguments.
- *
- * Usage:
- *   User student = UserFactory.createStudent("s1","ali","pass","Ali Kh","ali@kbtu.kz",1,"CS");
- *   User teacher = UserFactory.createTeacher("t1","prof","pass","Dr.X","x@kbtu.kz",500_000, TeacherPosition.PROFESSOR);
- */
 public class UserFactory {
 
-    private UserFactory() {}   // utility class — no instances
+    private UserFactory() {}
 
     public static Student createStudent(String id, String username, String password,
                                         String fullName, String email,
@@ -25,12 +15,16 @@ public class UserFactory {
         return new Student(id, username, password, fullName, email, yearOfStudy, major);
     }
 
+    public static SeniorStudent createSeniorStudent(String id, String username, String password,
+                                                    String fullName, String email, String major) {
+        return new SeniorStudent(id, username, password, fullName, email, major);
+    }
+
     public static GraduateStudent createGraduateStudent(String id, String username, String password,
                                                         String fullName, String email,
                                                         int yearOfStudy, String major,
                                                         GraduateType type) {
-        return new GraduateStudent(id, username, password, fullName, email,
-                                   yearOfStudy, major, type);
+        return new GraduateStudent(id, username, password, fullName, email, yearOfStudy, major, type);
     }
 
     public static Teacher createTeacher(String id, String username, String password,
@@ -50,8 +44,8 @@ public class UserFactory {
         return new Manager(id, username, password, fullName, email, salary, type);
     }
 
-    public static TechSupportSpecialist createTechSupport(String id, String username, String password,
-                                                          String fullName, String email, double salary) {
-        return new TechSupportSpecialist(id, username, password, fullName, email, salary);
+    public static ResearchStaff createResearchStaff(String id, String username, String password,
+                                                    String fullName, String email, double salary) {
+        return new ResearchStaff(id, username, password, fullName, email, salary);
     }
 }

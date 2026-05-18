@@ -9,45 +9,69 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents an academic course.
- * A course can have multiple instructors and multiple enrolled students.
+ * Represents an academic course in the university system.
+ * This class manages course details, credit value, target audience (major/year),
+ * and tracks the instructors, enrolled students, and scheduled lessons.
  */
 public class Course implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String        courseName;
-    private String        courseCode;
-    private int           credits;
-    private String        major;          // which major this course is intended for
-    private int           targetYear;     // which year of study
+    private String courseName;
+    private String courseCode;
+    private int credits;
 
+    /** The major or specialty this course is primarily intended for. */
+    private String major;
+
+    /** The recommended year of study for students taking this course. */
+    private int targetYear;
+
+    /** List of teachers authorized to conduct the course. */
     private List<Teacher> instructors;
+
+    /** List of students currently enrolled in the course. */
     private List<Student> students;
-    private List<Lesson>  lessons;
+
+    /** List of academic lessons (lectures, practices) associated with the course. */
+    private List<Lesson> lessons;
 
     public Course() {
         this.instructors = new ArrayList<>();
-        this.students    = new ArrayList<>();
-        this.lessons     = new ArrayList<>();
+        this.students = new ArrayList<>();
+        this.lessons = new ArrayList<>();
     }
 
     public Course(String courseName, String courseCode, int credits) {
         this();
         this.courseName = courseName;
         this.courseCode = courseCode;
-        this.credits    = credits;
-    }
-
-    public void addInstructor(Teacher teacher) {
-        if (!instructors.contains(teacher)) instructors.add(teacher);
-    }
-
-    public void addLesson(Lesson lesson) {
-        if (lesson != null) lessons.add(lesson);
+        this.credits = credits;
     }
 
     /**
-     * Returns combined list of all participants (teachers + students).
+     * Assigns a teacher as an instructor for this course.
+     * Prevents duplicate assignments.
+     * @param teacher The teacher instance to be added.
+     */
+    public void addInstructor(Teacher teacher) {
+        if (!instructors.contains(teacher)) {
+            instructors.add(teacher);
+        }
+    }
+
+    /**
+     * Adds a scheduled lesson to the course curriculum.
+     * @param lesson The lesson object containing time and type details.
+     */
+    public void addLesson(Lesson lesson) {
+        if (lesson != null) {
+            lessons.add(lesson);
+        }
+    }
+
+    /**
+     * Provides a consolidated list of all users involved in the course.
+     * @return A List containing both Teacher and Student objects.
      */
     public List<User> getParticipants() {
         List<User> all = new ArrayList<>();
@@ -57,19 +81,24 @@ public class Course implements Serializable {
     }
 
     // Getters & Setters
-    public String        getCourseName()            { return courseName; }
-    public void          setCourseName(String n)    { this.courseName = n; }
-    public String        getCourseCode()            { return courseCode; }
-    public void          setCourseCode(String c)    { this.courseCode = c; }
-    public int           getCredits()               { return credits; }
-    public void          setCredits(int cr)         { this.credits = cr; }
-    public String        getMajor()                 { return major; }
-    public void          setMajor(String major)     { this.major = major; }
-    public int           getTargetYear()            { return targetYear; }
-    public void          setTargetYear(int year)    { this.targetYear = year; }
-    public List<Teacher> getInstructors()           { return instructors; }
-    public List<Student> getStudents()              { return students; }
-    public List<Lesson>  getLessons()               { return lessons; }
+    public String getCourseName() { return courseName; }
+    public void setCourseName(String n) { this.courseName = n; }
+
+    public String getCourseCode() { return courseCode; }
+    public void setCourseCode(String c) { this.courseCode = c; }
+
+    public int getCredits() { return credits; }
+    public void setCredits(int cr) { this.credits = cr; }
+
+    public String getMajor() { return major; }
+    public void setMajor(String major) { this.major = major; }
+
+    public int getTargetYear() { return targetYear; }
+    public void setTargetYear(int year) { this.targetYear = year; }
+
+    public List<Teacher> getInstructors() { return instructors; }
+    public List<Student> getStudents() { return students; }
+    public List<Lesson> getLessons() { return lessons; }
 
     @Override
     public String toString() {

@@ -1,13 +1,10 @@
 package kbtu.model.course;
 
+import java.io.Serializable;
 import kbtu.enums.EnrollmentStatus;
 import kbtu.model.user.Student;
 
-import java.io.Serializable;
 
-/**
- * Tracks a student's enrollment in a course.
- */
 public class Enrollment implements Serializable {
     private static final long serialVersionUID = 1L;
 

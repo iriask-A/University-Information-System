@@ -1,16 +1,9 @@
 package kbtu.model.course;
 
+import java.io.Serializable;
 import kbtu.model.user.Student;
 
-import java.io.Serializable;
 
-/**
- * Represents a student's academic mark for a course.
- * Composed of:
- *  - 1st attestation (30%)
- *  - 2nd attestation (30%)
- *  - Final exam      (40%)
- */
 public class Mark implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -30,7 +23,7 @@ public class Mark implements Serializable {
         this.course            = course;
     }
 
-    /** Weighted total: 30%+30%+40% */
+   
     public double calculateTotal() {
         return firstAttestation * 0.3 + secondAttestation * 0.3 + finalExam * 0.4;
     }
@@ -65,7 +58,7 @@ public class Mark implements Serializable {
         return 0.0;
     }
 
-    // Getters & Setters
+    
     public double  getFirstAttestation()            { return firstAttestation; }
     public void    setFirstAttestation(double v)    { this.firstAttestation = v; }
     public double  getSecondAttestation()           { return secondAttestation; }
